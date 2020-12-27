@@ -15,7 +15,7 @@ export default class Task extends Component {
         {(value) => {
           const { dispatch } = value;
           const taskClass = "task-container" + " " + taskStatusClass
-          console.log(taskClass);
+          const doneButtonVisible = taskStatusClass == "done-task" ? "none" : "inline-block";
           return (
             <div className={ taskClass }>
               <div className="task-container-content">
@@ -26,6 +26,7 @@ export default class Task extends Component {
                 <button
                   className="task-done"
                   onClick={this.done.bind(this, dispatch,id)}
+                  style={{display:doneButtonVisible}}
                 >
                   Tamamlandı
                 </button>
