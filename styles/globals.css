@@ -73,9 +73,9 @@ a {
   background-color:rgba(0,200,70,0.8);
 }
 .pending-task {
-  background-color: rgba(216, 176, 176, 0.4);
+  background-color: rgba(237, 240, 80, 0.4);
   
 }
 .pending-task:hover{
-  background-color: rgba(197, 135, 135, 0.8);
+  background-color: rgba(237, 240, 80, 0.8);
 }
