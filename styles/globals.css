@@ -38,6 +38,7 @@ a {
 }
 .create-task-button{
   width: 10%;
+  min-width:40px;
 }
 .create-task-button:hover{
   cursor: pointer;
