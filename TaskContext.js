@@ -38,6 +38,12 @@ export class TaskProvider extends Component {
         taskStatus: "Henüz Yapılmadı.",
         taskStatusClass: "pending-task"
       },
+      {
+        id: "sadsacaggdfczx",
+        taskDescription: "My third task in todo app.",
+        taskStatus: "Henüz Yapılmadı.",
+        taskStatusClass: "pending-task"
+      },
     ],
     dispatch: (action) => {
       this.setState((state) => reducer(state, action));
