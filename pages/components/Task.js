@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import UserConsumer from "../../TaskContext";
+import TaskConsumer from "../../TaskContext";
 import PropTypes from "prop-types";
 export default class Task extends Component {
   done = (dispatch,id,e) => {
@@ -11,7 +11,7 @@ export default class Task extends Component {
   render() {
     const { taskDescription, taskStatus, id, taskStatusClass } = this.props;
     return (
-      <UserConsumer>
+      <TaskConsumer>
         {(value) => {
           const { dispatch } = value;
           const taskClass = "task-container" + " " + taskStatusClass
@@ -24,18 +24,18 @@ export default class Task extends Component {
               </div>
               <div className="task-container-button">
                 <button
-                  className="task-done"
+                  className="task-done btn btn-primary"
                   onClick={this.done.bind(this, dispatch,id)}
                   style={{display:doneButtonVisible}}
                 >
-                  Tamamlandı
+                  Done
                 </button>
-                <button className="task-cancel" onClick={this.delete.bind(this, dispatch,id)}>Sil</button>
+                <button className="task-cancel btn btn-danger" onClick={this.delete.bind(this, dispatch,id)}>Delete</button>
               </div>
             </div>
           );
         }}
-      </UserConsumer>
+      </TaskConsumer>
     );
   }
 }
@@ -46,5 +46,5 @@ Task.propTypes = {
 };
 Task.defaultProps = {
   taskDescription: "My first task in todo app.",
-  taskStatus: "Henüz Yapılmadı.",
+  taskStatus: "Waiting.",
 };

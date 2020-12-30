@@ -10,14 +10,22 @@ const reducer = (state, action) => {
         tasks: state.tasks.filter((task) => action.payload !== task.id),
       };
     case "DONE_TASK":
-    var task = state.tasks.find(task => action.payload === task.id);
-    task.taskStatus = "Tamamlandı";
-    task.taskStatusClass = "done-task";
+      var task = state.tasks.find((task) => action.payload === task.id);
+      task.taskStatus = "Done";
+      task.taskStatusClass = "done-task";
       return state;
     case "ADD_TASK":
       return {
         ...state,
         tasks: [...state.tasks, action.payload],
+      };
+    case "SET_SHOW_MODAL":
+      state.showModal = action.payload;
+      return state;
+    case "CREATE_NEW_LIST":
+      return {
+        ...state,
+        todolist: [...state.todolist, action.payload],
       };
     default:
       return state;
@@ -27,24 +35,35 @@ export class TaskProvider extends Component {
   state = {
     tasks: [
       {
-        id: "sadf",
+        id: uniqid(),
         taskDescription: "My first task in todo app.",
-        taskStatus: "Henüz Yapılmadı.",
-        taskStatusClass: "pending-task"
+        taskStatus: "Waiting",
+        taskStatusClass: "pending-task",
       },
       {
-        id: "sadfsadfczx",
+        id: uniqid(),
         taskDescription: "My second task in todo app.",
-        taskStatus: "Henüz Yapılmadı.",
-        taskStatusClass: "pending-task"
+        taskStatus: "Waiting",
+        taskStatusClass: "pending-task",
       },
       {
-        id: "sadsacaggdfczx",
+        id: uniqid(),
         taskDescription: "My third task in todo app.",
-        taskStatus: "Henüz Yapılmadı.",
-        taskStatusClass: "pending-task"
+        taskStatus: "Waiting",
+        taskStatusClass: "pending-task",
       },
     ],
+    todolist: [
+      {
+        id: uniqid(),
+        name: "Today",
+      },
+      {
+        id: uniqid(),
+        name: "Tomorrow",
+      },
+    ],
+    showModal: false,
     dispatch: (action) => {
       this.setState((state) => reducer(state, action));
     },
