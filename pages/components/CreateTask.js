@@ -46,10 +46,10 @@ export default class CreateTask extends Component {
                 onChange={this.setNewTask.bind(this)}
               ></input>
               <button
-                className="create-task-button"
+                className="create-task-button btn btn-primary"
                 onClick={this.addNewTask.bind(this, dispatch)}
               >
-                Ekle
+                Add
               </button>
             </div>
           );
