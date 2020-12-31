@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import TaskConsumer from "../../TaskContext";
 import ToDoListItem from "./ToDoListItem";
 import { Modal, Button, InputGroup, FormControl } from "react-bootstrap";
+import PublicConstant from "../../PublicConstant";
 var uniqid = require("uniqid");
 export default class ToDoList extends Component {
   state = {
@@ -12,7 +13,7 @@ export default class ToDoList extends Component {
     this.setState({
         todoListName : ""
     });
-    dispatch({ type: "SET_SHOW_MODAL", payload: val });
+    dispatch({ type: PublicConstant.ShowModal, payload: val });
   }
   setToDoListName = (e) => {
     this.setState({
@@ -25,8 +26,8 @@ export default class ToDoList extends Component {
         id : uniqid(),
         name : this.state.todoListName
     }
-    dispatch({ type: "CREATE_NEW_LIST", payload: newItem });
-    dispatch({ type: "SET_SHOW_MODAL", payload: false });
+    dispatch({ type: PublicConstant.CreateNewList, payload: newItem });
+    dispatch({ type: PublicConstant.ShowModal, payload: false });
   }
   render() {
     return (

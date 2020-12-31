@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 import PublicConstant from '../../PublicConstant'
 export default class Task extends Component {
   done = (dispatch,id,e) => {
-      dispatch({type:"DONE_TASK",payload:id});
+      dispatch({type:PublicConstant.TaskDone,payload:id});
   };
   delete = (dispatch,id,e) => {
-    dispatch({type:"DELETE_TASK",payload:id});
+    dispatch({type:PublicConstant.TaskDelete,payload:id});
 };
   render() {
     const { taskDescription, taskStatus, id, taskStatusClass } = this.props;
