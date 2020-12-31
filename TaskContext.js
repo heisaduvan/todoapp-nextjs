@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 const TaskContext = React.createContext();
 const TaskConsumer = TaskContext.Consumer;
+import PublicConstant from "./PublicConstant";
 var uniqid = require("uniqid");
 const reducer = (state, action) => {
   switch (action.type) {
@@ -11,7 +12,7 @@ const reducer = (state, action) => {
       };
     case "DONE_TASK":
       var task = state.tasks.find((task) => action.payload === task.id);
-      task.taskStatus = "Done";
+      task.taskStatus = PublicConstant.doneTask;
       task.taskStatusClass = "done-task";
       return state;
     case "ADD_TASK":
@@ -37,19 +38,19 @@ export class TaskProvider extends Component {
       {
         id: uniqid(),
         taskDescription: "My first task in todo app.",
-        taskStatus: "Waiting",
+        taskStatus: PublicConstant.waitingTask,
         taskStatusClass: "pending-task",
       },
       {
         id: uniqid(),
         taskDescription: "My second task in todo app.",
-        taskStatus: "Waiting",
+        taskStatus: PublicConstant.waitingTask,
         taskStatusClass: "pending-task",
       },
       {
         id: uniqid(),
         taskDescription: "My third task in todo app.",
-        taskStatus: "Waiting",
+        taskStatus: PublicConstant.waitingTask,
         taskStatusClass: "pending-task",
       },
     ],

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import TaskConsumer from "../../TaskContext";
 import PropTypes from "prop-types";
+import PublicConstant from '../../PublicConstant'
 export default class Task extends Component {
   done = (dispatch,id,e) => {
       dispatch({type:"DONE_TASK",payload:id});
@@ -46,5 +47,5 @@ Task.propTypes = {
 };
 Task.defaultProps = {
   taskDescription: "My first task in todo app.",
-  taskStatus: "Waiting.",
+  taskStatus: PublicConstant.waiting,
 };

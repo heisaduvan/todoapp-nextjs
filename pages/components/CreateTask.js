@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import TaskConsumer from "../../TaskContext";
-
+import PublicConstant from "../../PublicConstant";
 var uniqid = require("uniqid");
 
 export default class CreateTask extends Component {
@@ -17,7 +17,7 @@ export default class CreateTask extends Component {
       const newTask = {
         id: uniqid(),
         taskDescription: this.state.newTask,
-        taskStatus: "Henüz Yapılmadı",
+        taskStatus: PublicConstant.waitingTask,
         taskStatusClass:"pending-task"
       };
       dispatch({ type: "ADD_TASK", payload: newTask });
