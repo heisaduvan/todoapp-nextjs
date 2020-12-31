@@ -5,25 +5,25 @@ import PublicConstant from "./PublicConstant";
 var uniqid = require("uniqid");
 const reducer = (state, action) => {
   switch (action.type) {
-    case "DELETE_TASK":
+    case PublicConstant.TaskDelete:
       return {
         ...state,
         tasks: state.tasks.filter((task) => action.payload !== task.id),
       };
-    case "DONE_TASK":
+    case PublicConstant.TaskDone:
       var task = state.tasks.find((task) => action.payload === task.id);
       task.taskStatus = PublicConstant.doneTask;
       task.taskStatusClass = "done-task";
       return state;
-    case "ADD_TASK":
+    case PublicConstant.TaskAdd:
       return {
         ...state,
         tasks: [...state.tasks, action.payload],
       };
-    case "SET_SHOW_MODAL":
+    case PublicConstant.ShowModal:
       state.showModal = action.payload;
       return state;
-    case "CREATE_NEW_LIST":
+    case PublicConstant.CreateNewList:
       return {
         ...state,
         todolist: [...state.todolist, action.payload],

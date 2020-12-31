@@ -20,7 +20,7 @@ export default class CreateTask extends Component {
         taskStatus: PublicConstant.waitingTask,
         taskStatusClass:"pending-task"
       };
-      dispatch({ type: "ADD_TASK", payload: newTask });
+      dispatch({ type: PublicConstant.TaskAdd, payload: newTask });
     }
   };
 
