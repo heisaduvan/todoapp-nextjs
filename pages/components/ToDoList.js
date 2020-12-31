@@ -26,7 +26,7 @@ export default class ToDoList extends Component {
         name : this.state.todoListName
     }
     dispatch({ type: "CREATE_NEW_LIST", payload: newItem });
-    this.handleModalShow.bind(this,dispatch,false);
+    dispatch({ type: "SET_SHOW_MODAL", payload: false });
   }
   render() {
     return (
