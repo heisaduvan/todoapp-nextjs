@@ -101,3 +101,6 @@ a {
   background-color: rgba(223, 188, 91, 0.8);
   padding:.8rem;
 }
+.green{
+  background-color: rgba(0,200,70,0.8) !important;
+}
