@@ -6,4 +6,5 @@ export default class PublicConstant {
     static TaskAdd ="ADD_TASK";
     static ShowModal = "SET_SHOW_MODAL";
     static CreateNewList = "CREATE_NEW_LIST";
+    static ChangeSelectedList = "CHANGE_SELECTED_LIST";
 }

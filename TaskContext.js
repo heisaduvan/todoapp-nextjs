@@ -28,6 +28,9 @@ const reducer = (state, action) => {
         ...state,
         todolist: [...state.todolist, action.payload],
       };
+      case PublicConstant.ChangeSelectedList:
+        state.selectedListId = action.payload;
+        return state;
     default:
       return state;
   }
@@ -65,6 +68,7 @@ export class TaskProvider extends Component {
       },
     ],
     showModal: false,
+    selectedListId : '',
     dispatch: (action) => {
       this.setState((state) => reducer(state, action));
     },
